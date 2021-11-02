@@ -1,0 +1,14 @@
+[Step 1] Update repository and install additional packages
+opkg update && opkg install php7 php7-cgi php7-mod-session php7-mod-gmp php7-mod-gettext php7-mod-iconv php7-mod-json php7-mod-pcntl nano unzip curl 
+
+[Step 2] Download the source and configuration file
+curl -o /tmp/version -k https://raw.githubusercontent.com/laksa19/mikhmonv3/master/verson.txt
+
+[Step 3] Detected MIKHMON version... 
+cat /tmp/version curl -o /tmp/mikhmon.zip -k https://codeload.github.com/laksa19/mikhmonv3/zip/master curl -o /tmp/uhttpd -k https://pastebin.com/raw/iDBLjZc0 
+
+[Step 4] Configure MIKHMON and uhttpd
+unzip /tmp/mikhmon.zip -d /www/ mv /www/mikhmonv3-master /www/mikhmon cat /tmp/uhttpd > /etc/config/uhttpd 
+
+[POST-INSTALLATION] Delete temporary file 
+rm -rf /tmp/uhttpd /tmp/mikhmon.zip /tmp/*.ipk opkg remove mikhmon clear
